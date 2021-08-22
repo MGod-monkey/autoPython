@@ -27,7 +27,7 @@
            佛祖保佑       永不宕机     永无BUG
 '''
 
-'''
+r'''
 Author: @MGodmonkey
 Date: 2021-08-14 17:26:42
 LastEditTime: 2021-08-21 13:47:03
@@ -120,7 +120,7 @@ def sendMsg(url_status=None):
     desp = '';
     num = 0
     for i in zh:
-        desp += f'## 账号: **{i}**\n\n> [{token[num]}]({token[num]})\n\n\n\n---'
+        desp += f'## 账号: **{i}**\n\n> [{token[num]}]({token[num]})\n\n --- \n\n'
         num += 1
 
     mess['desp'] = desp
