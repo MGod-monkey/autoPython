@@ -43,8 +43,9 @@ import json
 
 ###### 全局变量 #####
 
-sendkey = 'SCT64904TtD0qxfK3uR3nxUcDXMEYGoSF'   # 在https://sct.ftqq.com/sendkey中获取
-num = 2 # 每次获取的订阅数
+sendkey = 'SCT64904TtD0qxfK3uR3nxUcDXMEYGoSF'   # 在 https://sct.ftqq.com/sendkey 中获取
+openWechatPush = True      # 由于Server酱推送限制，免费用户只有5次推送次数，为了不浪费免费推送次数，测试调试请关闭微信推送服务
+num = 2 # 默认每次注册的用户个数
 passwd = 'wpq5201314'   # 每个注册账号默认的密码
 qq_min = 10000000   # 注册的qq号最小值
 qq_max = 2000000000 # 注册的qq号最大值(当qq号多次注册不成功时，修改范围有效)
@@ -54,7 +55,7 @@ qq_max = 2000000000 # 注册的qq号最大值(当qq号多次注册不成功时�
 
 url_register = "https://feiniaoyun.tk/api/v1/passport/auth/register"
 url_login = "https://feiniaoyun.tk/api/v1/passport/auth/login"
-url_server = "https://sctapi.ftqq.com/SCT64904TtD0qxfK3uR3nxUcDXMEYGoSF.send"
+url_server = f"https://sctapi.ftqq.com/{sendkey}.send"
 url_status = "https://sctapi.ftqq.com/push"
 
 zh = []
@@ -105,8 +106,6 @@ def register(qq_email, qq_password):
 
 # 登录获取token
 def login():
-    # browser = webdriver.Chrome()
-    # browser.get("http://www.baidu.com")
     response = requests.post(url_login, headers=headers, data=data)
     if response.status_code == 200:
         tk = "https://feiniaoyun.tk/api/v1/client/subscribe?token=" + json.loads(response.text)['data']['token']
@@ -142,6 +141,7 @@ if __name__ == '__main__':
         num -= 1
     if zh:
         for tk in token:
-            print(tk)
-        sendMsg(url_status)
+            print(f'clash订阅：tk')
+        if openWechatPush:
+            sendMsg(url_status)
     # os.system('pause')
