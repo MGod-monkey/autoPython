@@ -37,7 +37,7 @@ import json
 ###### 全局变量 #####
 
 sendkey = 'SCT64904TtD0qxfK3uR3nxUcDXMEYGoSF'   # 在 https://sct.ftqq.com/sendkey 中获取
-openWechatPush = True      # 由于Server酱推送限制，免费用户只有5次推送次数，为了不浪费免费推送次数，测试调试请关闭微信推送服务
+openWechatPush = False      # 由于Server酱推送限制，免费用户只有5次推送次数，为了不浪费免费推送次数，测试调试请关闭微信推送服务
 num = 1 # 默认每次注册的用户个数
 passwd = 'wpq5201314'   # 每个注册账号默认的密码
 qq_min = 10000000   # 注册的qq号最小值
